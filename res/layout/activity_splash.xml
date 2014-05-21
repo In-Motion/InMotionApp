@@ -8,5 +8,5 @@
         android:id="@+id/splashView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/splash003" />    
+        android:contentDescription="splash screen"/>    
 </LinearLayout>

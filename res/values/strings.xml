@@ -7,7 +7,7 @@
     
     <string-array name="nav_drawer_items">
         <item >Home</item>               
-        <item >Add Space</item>
+        <item >Ads Space</item>
         <item >Our Reach</item>
         <item >Awards</item>
         <item >Contact</item>
@@ -24,6 +24,7 @@
     <string name="business_head_name">Durgesh Nandan</string>
     <string name="business_head_contact">+91-xxx-xxx-xxxx</string>
     <string name="business_head_mail">durgesh@inmotion.in</string>
+    <string name="in_motion">InMotion</string>
 
     <!-- junk  -->
     <string name="text_home">Home</string>

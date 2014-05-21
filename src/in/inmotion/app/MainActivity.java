@@ -48,17 +48,16 @@ public class MainActivity extends Activity
         FragmentManager fragmentManager = getFragmentManager();
         Log.v("Postion", ""+position);
         mTitle = getResources().getStringArray(R.array.nav_drawer_items)[position];
+        Fragment fragment = null ;
         switch (position) {
-		    case 0:
-		    	//getString(R.string.text_home);
-		    	fragmentManager.beginTransaction()
-                .replace(R.id.container, new HomeFragment())
-                .commit();
+		    case 0:		    
+		    	fragment = new HomeFragment();
+		        break;
+		    case 1:		   
+		    	fragment = new AdsSpaceFragment();
 		        break;
 		    case 5:		    	
-		    	fragmentManager.beginTransaction()
-                .replace(R.id.container, new AboutFragment())
-                .commit();
+		    	fragment = new AboutFragment();
 		        break;
 //		    case 2:
 //		        mTitle = getString(R.string.title_section2);
@@ -67,10 +66,13 @@ public class MainActivity extends Activity
 //		        mTitle = getString(R.string.title_section3);
 //		        break;
 	        default:
-	        	fragmentManager.beginTransaction()
-                .replace(R.id.container, PlaceholderFragment.newInstance(position + 1))
-                .commit();
+	        	fragment = PlaceholderFragment.newInstance(position + 1);	        	
 		}
+        fragmentManager.beginTransaction()
+//        .setCustomAnimations(android.R.animator.fade_in, android.R.animator.fade_out)
+        .setCustomAnimations(R.animator.slide_in_up,R.animator.slide_out_up)
+        .replace(R.id.container, fragment)
+        .commit();
 //	    fragmentManager.beginTransaction()
 //	      .replace(R.id.container, PlaceholderFragment.newInstance(position + 1))
 //	      .commit();

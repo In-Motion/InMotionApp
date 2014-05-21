@@ -1,13 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">InMotion</string>
-    <string name="title_section1">Section 1</string>
-    <string name="title_section2">Section 2</string>
-    <string name="title_section3">Section 3</string>
+    <string name="app_name">InMotion</string>    
+    
+        
+    
+    <string-array name="nav_drawer_items">
+        <item >Home</item>               
+        <item >Add Space</item>
+        <item >Our Reach</item>
+        <item >Awards</item>
+        <item >Contact</item>
+        <item >About</item>
+    </string-array>
+            
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="action_example">Example action</string>
     <string name="action_settings">Settings</string>
+    
+    <string name="loki">Lokesh Mehra</string>
+    <string name="pandey">Vishvajit Pandey</string>
+    <string name="business_head_name">Durgesh Nandan</string>
+    <string name="business_head_contact">+91-xxx-xxx-xxxx</string>
+    <string name="business_head_mail">durgesh@inmotion.in</string>
 
+    <!-- junk  -->
+    <string name="text_home">Home</string>
+    <string name="title_section">Some Section</string>
 </resources>

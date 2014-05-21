@@ -8,10 +8,19 @@
 package in.inmotion.app;
 
 public final class R {
+    public static final class anim {
+        public static final int fade_in=0x7f040000;
+        public static final int fade_out=0x7f040001;
+    }
+    public static final class array {
+        public static final int nav_drawer_items=0x7f080000;
+    }
     public static final class attr {
     }
     public static final class color {
-        public static final int Orange=0x7f040000;
+        public static final int Black2=0x7f050002;
+        public static final int OrangeDark=0x7f050001;
+        public static final int OrangeLight=0x7f050000;
     }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
@@ -21,49 +30,73 @@ public final class R {
          would include 7" and 10" devices in landscape (~960dp and ~1280dp respectively).
     
          */
-        public static final int activity_horizontal_margin=0x7f050000;
-        public static final int activity_vertical_margin=0x7f050001;
+        public static final int activity_horizontal_margin=0x7f060000;
+        public static final int activity_vertical_margin=0x7f060001;
         /** 
          Per the design guidelines, navigation drawers should be between 240dp and 320dp:
          https://developer.android.com/design/patterns/navigation-drawer.html
     
          */
-        public static final int navigation_drawer_width=0x7f050002;
+        public static final int navigation_drawer_width=0x7f060002;
     }
     public static final class drawable {
         public static final int drawer_shadow=0x7f020000;
         public static final int ic_drawer=0x7f020001;
         public static final int ic_launcher=0x7f020002;
         public static final int inmotion_splash=0x7f020003;
+        public static final int splash000=0x7f020004;
+        public static final int splash001=0x7f020005;
+        public static final int splash002=0x7f020006;
+        public static final int splash003=0x7f020007;
+        public static final int splash004=0x7f020008;
+        public static final int splash005=0x7f020009;
+        public static final int splash006=0x7f02000a;
+        public static final int splash_anim=0x7f02000b;
     }
     public static final class id {
-        public static final int action_example=0x7f090006;
-        public static final int action_settings=0x7f090005;
-        public static final int container=0x7f090001;
-        public static final int drawer_layout=0x7f090000;
-        public static final int navigation_drawer=0x7f090002;
-        public static final int section_label=0x7f090004;
-        public static final int splashView=0x7f090003;
+        public static final int action_example=0x7f0b000e;
+        public static final int action_settings=0x7f0b000d;
+        public static final int container=0x7f0b0001;
+        public static final int drawer_layout=0x7f0b0000;
+        public static final int imageView1=0x7f0b000b;
+        public static final int navigation_drawer=0x7f0b0002;
+        public static final int section_label=0x7f0b000c;
+        public static final int splashView=0x7f0b0003;
+        public static final int textView1=0x7f0b0006;
+        public static final int textView2=0x7f0b0004;
+        public static final int textView3=0x7f0b0005;
+        public static final int textView4=0x7f0b0007;
+        public static final int textView5=0x7f0b0008;
+        public static final int textView6=0x7f0b0009;
+        public static final int textView7=0x7f0b000a;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
         public static final int activity_splash=0x7f030001;
-        public static final int fragment_main=0x7f030002;
-        public static final int fragment_navigation_drawer=0x7f030003;
+        public static final int fragment_about=0x7f030002;
+        public static final int fragment_home=0x7f030003;
+        public static final int fragment_main=0x7f030004;
+        public static final int fragment_navigation_drawer=0x7f030005;
     }
     public static final class menu {
-        public static final int global=0x7f080000;
-        public static final int main=0x7f080001;
+        public static final int global=0x7f0a0000;
+        public static final int main=0x7f0a0001;
     }
     public static final class string {
-        public static final int action_example=0x7f060006;
-        public static final int action_settings=0x7f060007;
-        public static final int app_name=0x7f060000;
-        public static final int navigation_drawer_close=0x7f060005;
-        public static final int navigation_drawer_open=0x7f060004;
-        public static final int title_section1=0x7f060001;
-        public static final int title_section2=0x7f060002;
-        public static final int title_section3=0x7f060003;
+        public static final int action_example=0x7f070003;
+        public static final int action_settings=0x7f070004;
+        public static final int app_name=0x7f070000;
+        public static final int business_head_contact=0x7f070008;
+        public static final int business_head_mail=0x7f070009;
+        public static final int business_head_name=0x7f070007;
+        public static final int loki=0x7f070005;
+        public static final int navigation_drawer_close=0x7f070002;
+        public static final int navigation_drawer_open=0x7f070001;
+        public static final int pandey=0x7f070006;
+        /**  junk  
+         */
+        public static final int text_home=0x7f07000a;
+        public static final int title_section=0x7f07000b;
     }
     public static final class style {
         /** 
@@ -87,10 +120,24 @@ public final class R {
     
  API 14 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f070000;
+        public static final int AppBaseTheme=0x7f090000;
         /**  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static final int AppTheme=0x7f070001;
+        public static final int AppTheme=0x7f090001;
+        /**  Splash Screen Animation. 
+   	<style name="Animations" parent="@android:style/Theme">
+       <item name="android:windowAnimationStyle">@style/Animations.SplashScreen</item>
+   	</style>
+   
+    <style name="Animations.SplashScreen" parent="@android:style/Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@anim/fade_in</item>
+        <item name="android:activityOpenExitAnimation">@anim/fade_in</item>
+        <item name="android:activityCloseEnterAnimation">@anim/fade_out</item>
+        <item name="android:activityCloseExitAnimation">@anim/fade_out</item>
+    </style>
+    
+         */
+        public static final int Theme_Splash=0x7f090002;
     }
 }

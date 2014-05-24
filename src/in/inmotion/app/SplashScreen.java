@@ -12,7 +12,6 @@ public class SplashScreen extends Activity {
 	AnimationDrawable splashAnimation;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_splash);
 		
@@ -20,8 +19,7 @@ public class SplashScreen extends Activity {
 		imageView.setBackgroundResource(R.drawable.splash_anim);
 		
 		splashAnimation = (AnimationDrawable) imageView.getBackground();
-		splashAnimation.start();
-		splashAnimation.setOneShot(true);
+		splashAnimation.start();		
 		
 		Thread timer = new Thread(){
 			@Override

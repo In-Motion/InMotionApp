@@ -7,8 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class AwardsFragment extends ListFragment {
-	public AwardsFragment() {
+public class ClientsFragment extends ListFragment {
+	public ClientsFragment() {
 		//
 	}	
 	
@@ -18,14 +18,18 @@ public class AwardsFragment extends ListFragment {
 	
 		View rootView = inflater.inflate(R.layout.fragment_team, container, false);
 		
-		String[] names = getResources().getStringArray(R.array.awards_name);
-		String[] desc = getResources().getStringArray(R.array.awards_desc);
+		String[] names = getResources().getStringArray(R.array.client_names);
+		String[] desc = getResources().getStringArray(R.array.client_desc);
 		int[] id_sets = {
 							R.drawable.client_001,
 							R.drawable.client_002,
 							R.drawable.client_003,
 							R.drawable.client_004,
-							R.drawable.client_005
+							R.drawable.client_005,
+							R.drawable.client_006,
+							R.drawable.client_007,
+							R.drawable.client_008,
+							R.drawable.client_009
 						};
 		
 		ListArrayAdapter mAdapter = new ListArrayAdapter(getActivity(), names, desc, id_sets);

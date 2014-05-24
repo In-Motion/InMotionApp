@@ -1,18 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">InMotion</string>    
-    
-        
+    <string name="app_name">InMotion</string>               
     
     <string-array name="nav_drawer_items">
         <item >Home</item>               
         <item >Ads Space</item>
         <item >Our Reach</item>
-        <item >Awards</item>
-        <item >Contact</item>
-        <item >About</item>
+        <item >Clients</item>
+        <item >Awards</item>        
         <item >Team</item>
+        <item >About</item>        
+    </string-array>
+    
+    <string-array name="client_names">
+        <item >Akash Institute</item>
+        <item >HCBL Bank</item>
+        <item >SBI Bank</item>
+        <item >Career Launcher</item>
+        <item >T.I.M.E.</item>
+        <item >UCO Bank</item>
+        <item >IMS</item>
+        <item >NACO</item>
+        <item >Uninor</item>        
+    </string-array>
+    <string-array name="client_desc">
+        <item >Akash Institute</item>
+        <item >HCBL Bank</item>
+        <item >SBI Bank</item>
+        <item >Career Launcher</item>
+        <item >T.I.M.E.</item>
+        <item >UCO Bank</item>
+        <item >IMS</item>
+        <item >NACO</item>
+        <item >Uninor</item>        
+    </string-array>
+    
+    <string-array name="awards_name">
+        <item >Noble</item>
+        <item >Grammy</item>
+        <item >Oscar</item>
+        <item >Booker</item>
+        <item >Brits</item>
+    </string-array>
+    <string-array name="awards_desc">
+        <item >Noble</item>
+        <item >Grammy</item>
+        <item >Oscar</item>
+        <item >Booker</item>
+        <item >Brits</item>
+    </string-array>
+    
+    <string-array name="team_member_names">
+        <item >Durgesh Nandan</item>
+        <item >Pramod Joshi</item>
+        <item >Jaiditya Mathur</item>
+        <item >Alok Kumar Singh</item>
+        <item >Yuvish Singh</item>
+    </string-array>
+    <string-array name="team_member_desc">
+        <item >Durgesh Nandan</item>
+        <item >Pramod Joshi</item>
+        <item >Jaiditya Mathur</item>
+        <item >Alok Kumar Singh</item>
+        <item >Yuvish Singh</item>
     </string-array>
             
     <string name="navigation_drawer_open">Open navigation drawer</string>

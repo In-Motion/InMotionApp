@@ -13,7 +13,13 @@ public final class R {
         public static final int slide_out_up=0x7f040001;
     }
     public static final class array {
+        public static final int awards_desc=0x7f080004;
+        public static final int awards_name=0x7f080003;
+        public static final int client_desc=0x7f080002;
+        public static final int client_names=0x7f080001;
         public static final int nav_drawer_items=0x7f080000;
+        public static final int team_member_desc=0x7f080006;
+        public static final int team_member_names=0x7f080005;
     }
     public static final class attr {
     }
@@ -45,26 +51,40 @@ public final class R {
     }
     public static final class drawable {
         public static final int auto_abstract=0x7f020000;
-        public static final int drawer_shadow=0x7f020001;
-        public static final int exit_selector=0x7f020002;
-        public static final int ic_drawer=0x7f020003;
-        public static final int ic_launcher=0x7f020004;
-        public static final int inmotion_splash=0x7f020005;
-        public static final int list_bg_even=0x7f020006;
-        public static final int list_bg_odd=0x7f020007;
-        public static final int size01=0x7f020008;
-        public static final int size02=0x7f020009;
-        public static final int size03=0x7f02000a;
-        public static final int size04=0x7f02000b;
-        public static final int splash000=0x7f02000c;
-        public static final int splash001=0x7f02000d;
-        public static final int splash002=0x7f02000e;
-        public static final int splash003=0x7f02000f;
-        public static final int splash004=0x7f020010;
-        public static final int splash005=0x7f020011;
-        public static final int splash006=0x7f020012;
-        public static final int splash_anim=0x7f020013;
-        public static final int team_001=0x7f020014;
+        public static final int client_001=0x7f020001;
+        public static final int client_002=0x7f020002;
+        public static final int client_003=0x7f020003;
+        public static final int client_004=0x7f020004;
+        public static final int client_005=0x7f020005;
+        public static final int client_006=0x7f020006;
+        public static final int client_007=0x7f020007;
+        public static final int client_008=0x7f020008;
+        public static final int client_009=0x7f020009;
+        public static final int drawer_shadow=0x7f02000a;
+        public static final int exit_selector=0x7f02000b;
+        public static final int ic_drawer=0x7f02000c;
+        public static final int ic_launcher=0x7f02000d;
+        public static final int inmotion_splash=0x7f02000e;
+        public static final int list_bg_even=0x7f02000f;
+        public static final int list_bg_odd=0x7f020010;
+        public static final int size01=0x7f020011;
+        public static final int size02=0x7f020012;
+        public static final int size03=0x7f020013;
+        public static final int size04=0x7f020014;
+        public static final int splash000=0x7f020015;
+        public static final int splash001=0x7f020016;
+        public static final int splash002=0x7f020017;
+        public static final int splash003=0x7f020018;
+        public static final int splash004=0x7f020019;
+        public static final int splash005=0x7f02001a;
+        public static final int splash006=0x7f02001b;
+        public static final int splash_anim=0x7f02001c;
+        public static final int team_001=0x7f02001d;
+        public static final int team_002=0x7f02001e;
+        public static final int team_003=0x7f02001f;
+        public static final int team_004=0x7f020020;
+        public static final int team_005=0x7f020021;
+        public static final int team_006=0x7f020022;
     }
     public static final class id {
         public static final int action_example=0x7f0b0016;

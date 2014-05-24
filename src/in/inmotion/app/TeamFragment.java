@@ -18,14 +18,17 @@ public class TeamFragment extends ListFragment {
 	
 		View rootView = inflater.inflate(R.layout.fragment_team, container, false);
 		
-		String[] names = new String[] { "Aaloo", "papad", "chaat",
-		        "samosa", "laal", "tamatar", "pich", "pich",
-		        "pich"};
-		String[] desc = new String[] { "Kachaloo beta kahan gye the", "lizzat papad", "ashok chaat masala",
-		        "chai samosa garam garam", "laal baal shanks", "tamatar khane se shakti aati h", "pich perfect", "pich-kari",
-		        "pich-er plant desu"};
+		String[] names = getResources().getStringArray(R.array.team_member_names);
+		String[] desc = getResources().getStringArray(R.array.team_member_desc);
+		int[] id_sets = {
+				R.drawable.team_001,
+				R.drawable.team_004,
+				R.drawable.team_005,
+				R.drawable.team_006,
+				R.drawable.team_002
+			};
 		
-		ListArrayAdapter mAdapter = new ListArrayAdapter(getActivity(), names, desc);
+		ListArrayAdapter mAdapter = new ListArrayAdapter(getActivity(), names, desc, id_sets);
 		setListAdapter(mAdapter);
 		
 		return rootView;

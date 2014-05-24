@@ -14,17 +14,19 @@ public class ListArrayAdapter extends ArrayAdapter<String> {
 	private final Context context;
 	private final String[] names;
 	private final String[] desc;
+	private final int[] resIds;
 	
 	private static final int TYPE_LEFT = 0;
     private static final int TYPE_RIGHT = 1;
 	
 	public ListArrayAdapter(Context context,
-			String[] names, String[] desc) {
+			String[] names, String[] desc, int[] resId) {
 		super(context, R.layout.list_row_even, names);
 		
 		this.context = context;
 		this.names = names;
 		this.desc = desc;
+		this.resIds = resId;
 	}
 		
     private int getType(int position) {
@@ -53,7 +55,7 @@ public class ListArrayAdapter extends ArrayAdapter<String> {
 					
 		nameTextView.setText(names[position]);
 		descTextView.setText(desc[position]);
-		imageView.setImageResource(R.drawable.team_001);
+		imageView.setImageResource(resIds[position]);
 		
 		return rowView;
 	}

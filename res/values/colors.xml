@@ -3,4 +3,6 @@
         <color name="OrangeLight">#fffff8dc</color>
         <color name="OrangeDark">#ffffeb8b</color>
         <color name="Black2">#ff222222</color>
+        <color name="White">#ffffffff</color>
+        <color name="White_f0">#fff0f0f0</color>
     </resources>

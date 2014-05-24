@@ -165,27 +165,38 @@ public class AdsSpaceFragment extends Fragment{
 		animatorSet.addListener(new AnimatorListenerAdapter() {
 			//override
 			public void onAnimationEnd(Animator animation){
-				thumbView.setAlpha(1f);				
+				thumbView.setAlpha(1f);
+//				zoomedImageView.setVisibility(View.GONE);
+				mCurrentAnimator = null;
 			}
 			//override			
 			public void onAnimationCancel(Animator animation) {
 				thumbView.setAlpha(1f);
 				zoomedImageView.setVisibility(View.GONE);
 				mCurrentAnimator = null;
-				}				
+				}		
+			//override
+			public void onAnimationStart(Animator animation){
+				Animation in = AnimationUtils.loadAnimation(getActivity(), android.R.anim.fade_in);		            
+	            zoomedImageView.startAnimation(in);
+			}
 		});
 		animatorSet.start();
 		zoomedImageView.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
-				animatorSet.end();
-				if(zoomedImageView.getVisibility() == View.VISIBLE) {
-		            Animation out = AnimationUtils.loadAnimation(getActivity(), android.R.anim.fade_out);
+//				animatorSet.end();
+//				thumbView.setAlpha(1f);		
+//				if(zoomedImageView.getVisibility() == View.VISIBLE) {
+				if(zoomedImageView.getVisibility() != View.VISIBLE){
+					zoomedImageView.setVisibility(View.VISIBLE); 
+				}
+		            Animation out = AnimationUtils.loadAnimation(getActivity(), android.R.anim.fade_out);		            
 		            zoomedImageView.startAnimation(out);
-		            zoomedImageView.setVisibility(View.GONE);
-		        }				
-				mCurrentAnimator = null;
+		            zoomedImageView.setVisibility(View.GONE);			            	                      
+//		        }				
+//				mCurrentAnimator = null;
 			}
 		});
 		mCurrentAnimator = animatorSet;

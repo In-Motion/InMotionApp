@@ -21,6 +21,8 @@ public final class R {
         public static final int Black2=0x7f050002;
         public static final int OrangeDark=0x7f050001;
         public static final int OrangeLight=0x7f050000;
+        public static final int White=0x7f050003;
+        public static final int White_f0=0x7f050004;
     }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
@@ -45,22 +47,25 @@ public final class R {
         public static final int ic_drawer=0x7f020002;
         public static final int ic_launcher=0x7f020003;
         public static final int inmotion_splash=0x7f020004;
-        public static final int size01=0x7f020005;
-        public static final int size02=0x7f020006;
-        public static final int size03=0x7f020007;
-        public static final int size04=0x7f020008;
-        public static final int splash000=0x7f020009;
-        public static final int splash001=0x7f02000a;
-        public static final int splash002=0x7f02000b;
-        public static final int splash003=0x7f02000c;
-        public static final int splash004=0x7f02000d;
-        public static final int splash005=0x7f02000e;
-        public static final int splash006=0x7f02000f;
-        public static final int splash_anim=0x7f020010;
+        public static final int list_bg_even=0x7f020005;
+        public static final int list_bg_odd=0x7f020006;
+        public static final int size01=0x7f020007;
+        public static final int size02=0x7f020008;
+        public static final int size03=0x7f020009;
+        public static final int size04=0x7f02000a;
+        public static final int splash000=0x7f02000b;
+        public static final int splash001=0x7f02000c;
+        public static final int splash002=0x7f02000d;
+        public static final int splash003=0x7f02000e;
+        public static final int splash004=0x7f02000f;
+        public static final int splash005=0x7f020010;
+        public static final int splash006=0x7f020011;
+        public static final int splash_anim=0x7f020012;
+        public static final int team_001=0x7f020013;
     }
     public static final class id {
-        public static final int action_example=0x7f0b0012;
-        public static final int action_settings=0x7f0b0011;
+        public static final int action_example=0x7f0b0016;
+        public static final int action_settings=0x7f0b0015;
         public static final int container=0x7f0b0001;
         public static final int drawer_layout=0x7f0b0000;
         public static final int expanded_image=0x7f0b000c;
@@ -70,6 +75,10 @@ public final class R {
         public static final int navigation_drawer=0x7f0b0002;
         public static final int section_label=0x7f0b000f;
         public static final int splashView=0x7f0b0003;
+        public static final int team_desc=0x7f0b0013;
+        public static final int team_icon=0x7f0b0012;
+        public static final int team_label=0x7f0b0014;
+        public static final int team_listview=0x7f0b0010;
         public static final int textView1=0x7f0b0004;
         public static final int textView2=0x7f0b000a;
         public static final int textView3=0x7f0b0009;
@@ -77,7 +86,7 @@ public final class R {
         public static final int textView5=0x7f0b0006;
         public static final int textView6=0x7f0b0007;
         public static final int textView7=0x7f0b0008;
-        public static final int thumb=0x7f0b0010;
+        public static final int thumb=0x7f0b0011;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
@@ -87,7 +96,10 @@ public final class R {
         public static final int fragment_home=0x7f030004;
         public static final int fragment_main=0x7f030005;
         public static final int fragment_navigation_drawer=0x7f030006;
-        public static final int grid_item=0x7f030007;
+        public static final int fragment_team=0x7f030007;
+        public static final int grid_item=0x7f030008;
+        public static final int list_row_even=0x7f030009;
+        public static final int list_row_odd=0x7f03000a;
     }
     public static final class menu {
         public static final int global=0x7f0a0000;

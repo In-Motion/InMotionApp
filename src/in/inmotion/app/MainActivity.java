@@ -56,8 +56,14 @@ public class MainActivity extends Activity
 		    case 1:		   
 		    	fragment = new AdsSpaceFragment();
 		        break;
+		    case 3:		   
+		    	fragment = new AwardsFragment();
+		        break;
 		    case 5:		    	
 		    	fragment = new AboutFragment();
+		        break;
+		    case 6:		    	
+		    	fragment = new TeamFragment();
 		        break;
 //		    case 2:
 //		        mTitle = getString(R.string.title_section2);

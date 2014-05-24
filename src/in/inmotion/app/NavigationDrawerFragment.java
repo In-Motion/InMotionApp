@@ -9,6 +9,7 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
@@ -16,9 +17,11 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -97,12 +100,24 @@ public class NavigationDrawerFragment extends Fragment {
                 selectItem(position);
             }
         });
+        
+        View footer = inflater.inflate(R.layout.exit_button, null);
+        footer.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				getActivity().finish();
+				
+			}
+		});
+        mDrawerListView.addFooterView(footer);
+        
         mDrawerListView.setAdapter(new ArrayAdapter<String>(
                 getActionBar().getThemedContext(),
                 android.R.layout.simple_list_item_activated_1,
                 android.R.id.text1,
                 getResources().getStringArray(R.array.nav_drawer_items)));
-        mDrawerListView.setItemChecked(mCurrentSelectedPosition, true);
+        mDrawerListView.setItemChecked(mCurrentSelectedPosition, true);       
         return mDrawerListView;
     }
 

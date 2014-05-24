@@ -4,6 +4,7 @@ import android.app.ActionBar;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
@@ -13,6 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends Activity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks {
@@ -25,7 +27,9 @@ public class MainActivity extends Activity
     /**
      * Used to store the last screen title. For use in {@link #restoreActionBar()}.
      */
-    private CharSequence mTitle;
+    private CharSequence mTitle;    
+    private int currentPosition = 0;
+    private boolean initFlag = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,12 +38,13 @@ public class MainActivity extends Activity
 
         mNavigationDrawerFragment = (NavigationDrawerFragment)
                 getFragmentManager().findFragmentById(R.id.navigation_drawer);
-        mTitle = getTitle();
+        mTitle = getTitle();        
 
         // Set up the drawer.
         mNavigationDrawerFragment.setUp(
                 R.id.navigation_drawer,
                 (DrawerLayout) findViewById(R.id.drawer_layout));
+        
     }
 
     @Override
@@ -73,17 +78,45 @@ public class MainActivity extends Activity
 //		        break;
 	        default:
 	        	fragment = PlaceholderFragment.newInstance(position + 1);	        	
-		}
-        fragmentManager.beginTransaction()
-//        .setCustomAnimations(android.R.animator.fade_in, android.R.animator.fade_out)
-        .setCustomAnimations(R.animator.slide_in_up,R.animator.slide_out_up)
-        .replace(R.id.container, fragment)
-        .commit();
+		} 
+        if((currentPosition == position) && initFlag) {
+        	Log.v("CHECK","EQUAL " + initFlag);
+        } else {
+        	Log.v("CHECK","UnEQUAL " + initFlag);        	
+        	initFlag = true;
+        	currentPosition = position;
+        	fragmentManager.beginTransaction()
+	//          .setCustomAnimations(android.R.animator.fade_in, android.R.animator.fade_out)
+	          .setCustomAnimations(R.animator.slide_in_up,R.animator.slide_out_up)
+	          .replace(R.id.container, fragment)
+	//          .addToBackStack("fragment_back")
+	          .commit();
+        }        
+        
+//        if(currentFragment.getClass().equals(fragment.getClass())){
+//        	Log.v("CHECK","EQUAL");
+//        } else {
+//        	Log.v("CHECK","UnEQUAL");
+//        	currentFragment = fragment;
+//        }
+//        fragmentManager.beginTransaction()
+////          .setCustomAnimations(android.R.animator.fade_in, android.R.animator.fade_out)
+//          .setCustomAnimations(R.animator.slide_in_up,R.animator.slide_out_up)
+//          .replace(R.id.container, fragment)
+////          .addToBackStack("fragment_back")
+//    	          .commit();
 //	    fragmentManager.beginTransaction()
 //	      .replace(R.id.container, PlaceholderFragment.newInstance(position + 1))
 //	      .commit();
+        
     }
-
+    
+    @Override
+    public void onBackPressed() {
+    		onNavigationDrawerItemSelected(0);            
+            return;
+    }
+    
     public void onSectionAttached(int number) {    	
         switch (number) {
             case 1:

@@ -13,6 +13,28 @@
         <item >About</item>        
     </string-array>
     
+    <string-array name="reach_state">
+        <item >UP</item>
+        <item >Bihar</item>
+        <item >UK</item>        
+    </string-array>
+    
+    <string-array name="reach_1">
+        <item >UP1</item>
+        <item >UP2</item>
+        <item >UP3</item>        
+    </string-array>
+    <string-array name="reach_2">
+        <item >B</item>
+        <item >B</item>
+        <item >B</item>        
+    </string-array>
+    <string-array name="reach_3">
+        <item >X</item>
+        <item >Y</item>
+        <item >Z</item>        
+    </string-array>
+    
     <string-array name="client_names">
         <item >Akash Institute</item>
         <item >HCBL Bank</item>

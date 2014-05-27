@@ -59,6 +59,9 @@ public class MainActivity extends Activity
 		    case 1:		   
 		    	fragment = new AdsSpaceFragment();
 		        break;
+		    case 2:		   
+		    	fragment = new ReachFragment();
+		        break;
 		    case 3:		   
 		    	fragment = new ClientsFragment();
 		    	break;
@@ -114,7 +117,11 @@ public class MainActivity extends Activity
     
     @Override
     public void onBackPressed() {
-    		onNavigationDrawerItemSelected(0);            
+    	if(currentPosition == 0){
+    		finish();
+    	} else {
+    		onNavigationDrawerItemSelected(0);
+    	}
             return;
     }
     

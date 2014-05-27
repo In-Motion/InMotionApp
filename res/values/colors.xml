@@ -7,4 +7,6 @@
         <color name="White_f0">#fff0f0f0</color>
         <color name="Red_half">#7fd94e4e</color>
         <color name="Red_full">#ffd94e4e</color>
+        <color name="Green_full">#ff60b044</color>
+        <color name="Green_half">#7f60b044</color>
     </resources>

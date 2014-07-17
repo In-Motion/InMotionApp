@@ -14,39 +14,24 @@
         android:layout_height="match_parent"
         android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"
-        android:layout_toLeftOf="@+id/buttonPlus"
+        android:layout_toLeftOf="@+id/data_indicator"
         android:gravity="center_vertical"
         android:paddingLeft="8dip"
-        android:text="title" />
+        android:text="" />
 
     <!--Right Icon-->
-	<ImageButton
-        android:id="@+id/buttonMinus"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
-        android:layout_alignParentRight="true"
-        android:layout_centerVertical="true"
-        android:background="@drawable/minus_icon" />
 
     <TextView
         android:id="@+id/data_indicator"
-        android:padding="10dp"
         android:layout_width="80dp"
-        android:textAlignment="center"
-        android:layout_height="wrap_content"        
-        android:layout_toLeftOf="@+id/buttonMinus"
-        android:layout_centerVertical="true"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/child_header"
+        android:layout_alignBottom="@+id/child_header"
+        android:layout_alignParentRight="true"
         android:background="@color/Black2"
-        android:textColor="@color/White_f0"
+        android:padding="10dp"
         android:paddingLeft="8dip"
-        android:text="200" />
-
-    <ImageButton
-        android:id="@+id/buttonPlus"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
-        android:layout_alignTop="@+id/buttonMinus"
-        android:layout_toLeftOf="@+id/data_indicator"
-        android:background="@drawable/plus_icon" />
+        android:textAlignment="center"
+        android:textColor="@color/White_f0" />
 
 </RelativeLayout>

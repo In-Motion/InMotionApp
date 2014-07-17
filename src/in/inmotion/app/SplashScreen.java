@@ -29,7 +29,7 @@ public class SplashScreen extends Activity {
 				} catch (InterruptedException e){
 					e.printStackTrace();
 				} finally {
-					Intent openApp = new Intent("in.inmotion.app.HOME");
+					Intent openApp = new Intent("in.inmotion.app.REALHOME");
 					startActivity(openApp);
 				}
 			}			

@@ -1,6 +1,8 @@
 package in.inmotion.app;
 
 import android.app.Fragment;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,7 +13,6 @@ import android.widget.ExpandableListView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class ReachFragment extends Fragment {
 	private String[] categories;
@@ -44,13 +45,16 @@ public class ReachFragment extends Fragment {
 			
 			@Override
 			public void onClick(View v) {				
-				Toast.makeText(getActivity(), "Booking!!", Toast.LENGTH_LONG).show();
+//				Toast.makeText(getActivity(), "Booking!!", Toast.LENGTH_LONG).show();
+				Intent callIntent = new Intent(Intent.ACTION_CALL);          
+	            callIntent.setData(Uri.parse("tel:+917398753559"));          
+	            startActivity(callIntent);  
 			}
 		});
         listView.addHeaderView(header);
 	    
 	    listView.setAdapter(new GroupsListAdapter(categories, categoryItems));
-	    listView.setGroupIndicator(null); // I don't need group indicator on left
+	    listView.setGroupIndicator(null);
 	    return rootView;
 	}
 
@@ -135,34 +139,16 @@ public class ReachFragment extends Fragment {
 
 	            holder.text = (TextView) convertView.findViewById(R.id.child_header);
 	            holder.indicator = (TextView) convertView.findViewById(R.id.data_indicator);
-	            holder.btnUp = (ImageButton) convertView.findViewById(R.id.buttonPlus);
-	            holder.btnDown = (ImageButton) convertView.findViewById(R.id.buttonMinus);
 	            convertView.setTag(holder);
 	        } else {
 	            holder = (ChildViewHolder) convertView.getTag();
 	        }
-
-	        holder.text.setText(getChild(groupPosition, childPosition).toString());
-	        holder.indicator.setText("0");
+	        String rawString = getChild(groupPosition, childPosition).toString();
+	        String city = rawString.substring(0, rawString.indexOf(","));
+	        String count = rawString.substring(rawString.indexOf(",")+1);
+	        holder.text.setText(city);
+	        holder.indicator.setText(count);
 	        
-	        holder.btnUp.setOnClickListener(new OnClickListener() {
-				@Override
-				public void onClick(View v) {
-					int curVal = Integer.parseInt(holder.indicator.getText().toString());
-					if(curVal<1000){
-						holder.indicator.setText((curVal+25)+""); 					
-					}
-				}
-			});
-	        holder.btnDown.setOnClickListener(new OnClickListener() {
-				@Override
-				public void onClick(View v) {
-					int curVal = Integer.parseInt(holder.indicator.getText().toString());
-					if(curVal>0){
-						holder.indicator.setText((curVal-25)+""); 					
-					} 					
-				}
-			});
 	        
 	        return convertView;
 	    }
@@ -180,8 +166,6 @@ public class ReachFragment extends Fragment {
 	    private class ChildViewHolder {
 	    	TextView text;
 	    	TextView indicator;
-	        ImageButton btnUp;
-	        ImageButton btnDown;
 	    }
 
 	}

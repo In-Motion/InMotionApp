@@ -9,4 +9,6 @@
         <color name="Red_full">#ffd94e4e</color>
         <color name="Green_full">#ff60b044</color>
         <color name="Green_half">#7f60b044</color>
+        <color name="Yellow_full">#ffffff00</color>
+        <color name="White_dd">#ffdddddd</color>
     </resources>

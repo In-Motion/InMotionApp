@@ -32,7 +32,7 @@ public class ClientsFragment extends ListFragment {
 							R.drawable.client_009
 						};
 		
-		ListArrayAdapter mAdapter = new ListArrayAdapter(getActivity(), names, desc, id_sets);
+		ListArrayAdapter mAdapter = new ListArrayAdapter(getActivity(), names, desc, id_sets, ListArrayAdapter.MODE_SINGLE_LEFT);
 		setListAdapter(mAdapter);
 		
 		return rootView;

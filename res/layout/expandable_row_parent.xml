@@ -2,8 +2,8 @@
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="?android:attr/listPreferredItemHeight"
-    android:gravity="center_vertical"
-    android:background="@color/White_f0"    
+    android:gravity="center_vertical"  
+    android:background="@drawable/expand_row_parent_selector"    
     >
 
     <!--Title-->
@@ -17,7 +17,8 @@
         android:layout_toLeftOf="@+id/expand_collapse"
         android:gravity="center_vertical"
         android:paddingLeft="8dip"
-        android:text="title" />
+		android:textAppearance="?android:attr/textAppearanceLarge"         
+        android:text="" />
 
     <!--Right Icon-->
 

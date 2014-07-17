@@ -29,8 +29,4 @@
         <item name="android:activityCloseExitAnimation">@anim/fade_out</item>
     </style>
     -->
-    <style name="Theme.Splash" parent="android:Theme">
-	    <item name="android:windowBackground">@drawable/splash_anim</item>
-	    <item name="android:windowNoTitle">true</item>
-  	</style>
 </resources>

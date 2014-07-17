@@ -36,7 +36,9 @@ public final class R {
         public static final int Red_full=0x7f050006;
         public static final int Red_half=0x7f050005;
         public static final int White=0x7f050003;
+        public static final int White_dd=0x7f05000a;
         public static final int White_f0=0x7f050004;
+        public static final int Yellow_full=0x7f050009;
     }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
@@ -69,19 +71,19 @@ public final class R {
         public static final int client_007=0x7f02000a;
         public static final int client_008=0x7f02000b;
         public static final int client_009=0x7f02000c;
-        public static final int drawer_shadow=0x7f02000d;
-        public static final int exit_selector=0x7f02000e;
-        public static final int ic_drawer=0x7f02000f;
-        public static final int ic_launcher=0x7f020010;
-        public static final int inmotion_splash=0x7f020011;
-        public static final int list_bg_even=0x7f020012;
-        public static final int list_bg_odd=0x7f020013;
-        public static final int minus_icon=0x7f020014;
-        public static final int plus_icon=0x7f020015;
-        public static final int size01=0x7f020016;
-        public static final int size02=0x7f020017;
-        public static final int size03=0x7f020018;
-        public static final int size04=0x7f020019;
+        public static final int dare=0x7f02000d;
+        public static final int drawer_shadow=0x7f02000e;
+        public static final int exit_selector=0x7f02000f;
+        public static final int expand_row_parent_selector=0x7f020010;
+        public static final int gsea=0x7f020011;
+        public static final int ic_drawer=0x7f020012;
+        public static final int ic_launcher=0x7f020013;
+        public static final int list_bg_even=0x7f020014;
+        public static final int list_bg_odd=0x7f020015;
+        public static final int minus_icon=0x7f020016;
+        public static final int nen=0x7f020017;
+        public static final int plus_icon=0x7f020018;
+        public static final int size01=0x7f020019;
         public static final int splash000=0x7f02001a;
         public static final int splash001=0x7f02001b;
         public static final int splash002=0x7f02001c;
@@ -92,57 +94,61 @@ public final class R {
         public static final int splash_anim=0x7f020021;
         public static final int team_001=0x7f020022;
         public static final int team_002=0x7f020023;
-        public static final int team_003=0x7f020024;
-        public static final int team_004=0x7f020025;
-        public static final int team_005=0x7f020026;
-        public static final int team_006=0x7f020027;
+        public static final int team_004=0x7f020024;
+        public static final int team_005=0x7f020025;
+        public static final int wadhwani=0x7f020026;
+        public static final int your=0x7f020027;
+        public static final int your_story=0x7f020028;
     }
     public static final class id {
-        public static final int action_example=0x7f0b001d;
-        public static final int action_settings=0x7f0b001c;
-        public static final int buttonMinus=0x7f0b0006;
-        public static final int buttonPlus=0x7f0b0005;
-        public static final int child_header=0x7f0b0004;
+        public static final int bg_auto_1=0x7f0b0016;
+        public static final int child_header=0x7f0b0006;
+        public static final int click_button=0x7f0b0014;
+        public static final int clicked=0x7f0b0017;
         public static final int container=0x7f0b0001;
         public static final int data_indicator=0x7f0b0007;
         public static final int drawer_layout=0x7f0b0000;
-        public static final int expList=0x7f0b001b;
+        public static final int dropbox_result=0x7f0b0005;
+        public static final int expList=0x7f0b0020;
         public static final int expand_collapse=0x7f0b0009;
-        public static final int expanded_image=0x7f0b0012;
-        public static final int gridView=0x7f0b0011;
-        public static final int img_auto=0x7f0b0014;
-        public static final int in_motion_name=0x7f0b0013;
+        public static final int img_auto=0x7f0b0018;
+        public static final int in_motion_motto=0x7f0b0019;
+        public static final int in_motion_name=0x7f0b001a;
+        public static final int link_button=0x7f0b0004;
         public static final int navigation_drawer=0x7f0b0002;
         public static final int parent_header=0x7f0b0008;
-        public static final int section_label=0x7f0b0015;
+        public static final int save_button=0x7f0b0015;
+        public static final int section_label=0x7f0b001b;
         public static final int splashView=0x7f0b0003;
-        public static final int team_desc=0x7f0b0019;
-        public static final int team_icon=0x7f0b0018;
-        public static final int team_label=0x7f0b001a;
-        public static final int team_listview=0x7f0b0016;
-        public static final int textView1=0x7f0b000a;
-        public static final int textView2=0x7f0b0010;
-        public static final int textView3=0x7f0b000f;
-        public static final int textView4=0x7f0b000b;
-        public static final int textView5=0x7f0b000c;
-        public static final int textView6=0x7f0b000d;
-        public static final int textView7=0x7f0b000e;
-        public static final int thumb=0x7f0b0017;
+        public static final int team_desc=0x7f0b001e;
+        public static final int team_icon=0x7f0b001d;
+        public static final int team_label=0x7f0b001f;
+        public static final int team_listview=0x7f0b001c;
+        public static final int textView1=0x7f0b000b;
+        public static final int textView2=0x7f0b000a;
+        public static final int textView3=0x7f0b000c;
+        public static final int textView4=0x7f0b000d;
+        public static final int textView5=0x7f0b000e;
+        public static final int textView6=0x7f0b000f;
+        public static final int textView7=0x7f0b0010;
+        public static final int textView8=0x7f0b0011;
+        public static final int textView9=0x7f0b0012;
+        public static final int upload_button=0x7f0b0013;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
         public static final int activity_splash=0x7f030001;
         public static final int book_button=0x7f030002;
-        public static final int exit_button=0x7f030003;
-        public static final int expandable_row_child=0x7f030004;
-        public static final int expandable_row_parent=0x7f030005;
-        public static final int fragment_about=0x7f030006;
-        public static final int fragment_ads_space=0x7f030007;
-        public static final int fragment_home=0x7f030008;
-        public static final int fragment_main=0x7f030009;
-        public static final int fragment_navigation_drawer=0x7f03000a;
-        public static final int fragment_team=0x7f03000b;
-        public static final int grid_item=0x7f03000c;
+        public static final int dropbox_activity=0x7f030003;
+        public static final int exit_button=0x7f030004;
+        public static final int expandable_row_child=0x7f030005;
+        public static final int expandable_row_parent=0x7f030006;
+        public static final int fragment_about=0x7f030007;
+        public static final int fragment_ads_space=0x7f030008;
+        public static final int fragment_home=0x7f030009;
+        public static final int fragment_main=0x7f03000a;
+        public static final int fragment_navigation_drawer=0x7f03000b;
+        public static final int fragment_team=0x7f03000c;
         public static final int list_row_even=0x7f03000d;
         public static final int list_row_odd=0x7f03000e;
         public static final int my_expandable=0x7f03000f;
@@ -152,21 +158,19 @@ public final class R {
         public static final int main=0x7f0a0001;
     }
     public static final class string {
-        public static final int action_example=0x7f070003;
-        public static final int action_settings=0x7f070004;
         public static final int app_name=0x7f070000;
-        public static final int business_head_contact=0x7f070008;
-        public static final int business_head_mail=0x7f070009;
-        public static final int business_head_name=0x7f070007;
-        public static final int in_motion=0x7f07000a;
-        public static final int loki=0x7f070005;
+        public static final int business_head_contact=0x7f070007;
+        public static final int business_head_mail=0x7f070008;
+        public static final int business_head_name=0x7f070006;
+        public static final int button_book=0x7f07000c;
+        public static final int button_click_image=0x7f07000a;
+        public static final int button_upload_image=0x7f07000b;
+        public static final int in_motion=0x7f070009;
+        public static final int lkmhr=0x7f070004;
         public static final int navigation_drawer_close=0x7f070002;
         public static final int navigation_drawer_open=0x7f070001;
-        public static final int pandey=0x7f070006;
-        /**  junk  
-         */
-        public static final int text_home=0x7f07000b;
-        public static final int title_section=0x7f07000c;
+        public static final int text_about=0x7f070003;
+        public static final int vjitp=0x7f070005;
     }
     public static final class style {
         /** 
@@ -195,19 +199,5 @@ public final class R {
  All customizations that are NOT specific to a particular API-level can go here. 
          */
         public static final int AppTheme=0x7f090001;
-        /**  Splash Screen Animation. 
-   	<style name="Animations" parent="@android:style/Theme">
-       <item name="android:windowAnimationStyle">@style/Animations.SplashScreen</item>
-   	</style>
-   
-    <style name="Animations.SplashScreen" parent="@android:style/Animation.Activity">
-        <item name="android:activityOpenEnterAnimation">@anim/fade_in</item>
-        <item name="android:activityOpenExitAnimation">@anim/fade_in</item>
-        <item name="android:activityCloseEnterAnimation">@anim/fade_out</item>
-        <item name="android:activityCloseExitAnimation">@anim/fade_out</item>
-    </style>
-    
-         */
-        public static final int Theme_Splash=0x7f090002;
     }
 }

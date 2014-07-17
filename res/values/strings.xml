@@ -10,29 +10,28 @@
         <item >Clients</item>
         <item >Awards</item>        
         <item >Team</item>
-        <item >About</item>        
+        <item >About</item>      
     </string-array>
     
     <string-array name="reach_state">
-        <item >UP</item>
+        <item >Uttar Pradesh</item>
         <item >Bihar</item>
         <item >UK</item>        
     </string-array>
     
     <string-array name="reach_1">
-        <item >UP1</item>
-        <item >UP2</item>
-        <item >UP3</item>        
+        <item >Lucknow,15000</item>
+        <item >Kanpur,10000</item>
+        <item >Varanasi,8000</item>        
     </string-array>
     <string-array name="reach_2">
-        <item >B</item>
-        <item >B</item>
-        <item >B</item>        
+        <item >Patna,8000</item>
+        <item >Gaya,8000</item>               
     </string-array>
     <string-array name="reach_3">
-        <item >X</item>
-        <item >Y</item>
-        <item >Z</item>        
+        <item >Nainital,8000</item>
+        <item >Dehradun,8000</item>
+        <item >Haldwani,8000</item>
     </string-array>
     
     <string-array name="client_names">
@@ -47,60 +46,60 @@
         <item >Uninor</item>        
     </string-array>
     <string-array name="client_desc">
-        <item >Akash Institute</item>
-        <item >HCBL Bank</item>
-        <item >SBI Bank</item>
-        <item >Career Launcher</item>
-        <item >T.I.M.E.</item>
-        <item >UCO Bank</item>
-        <item >IMS</item>
-        <item >NACO</item>
-        <item >Uninor</item>        
+        <item ></item>
+        <item ></item>
+        <item ></item>
+        <item ></item>
+        <item ></item>
+        <item ></item>
+        <item ></item>
+        <item ></item>
+        <item ></item>        
     </string-array>
     
     <string-array name="awards_name">
-        <item >Noble</item>
-        <item >Grammy</item>
-        <item >Oscar</item>
-        <item >Booker</item>
-        <item >Brits</item>
+        <item >NEN India</item>
+        <item >GSEA</item>
+        <item >Dare Mag</item>
+        <item >Your Story</item>
+        <item >Wadhwani Foundation</item>
     </string-array>
     <string-array name="awards_desc">
-        <item >Noble</item>
-        <item >Grammy</item>
-        <item >Oscar</item>
-        <item >Booker</item>
-        <item >Brits</item>
+        <item >Top 30 Student Entrepreneur of India</item>
+        <item >Top 3 Graduate Finalist at\n the GSEA 2011.</item>
+        <item >Awarded by Dare Mag</item>
+        <item >Acknownledged by Your Story</item>
+        <item >Awarded by Wadhwani Foundation</item>
     </string-array>
     
     <string-array name="team_member_names">
         <item >Durgesh Nandan</item>
         <item >Pramod Joshi</item>
         <item >Jaiditya Mathur</item>
-        <item >Alok Kumar Singh</item>
         <item >Yuvish Singh</item>
     </string-array>
     <string-array name="team_member_desc">
-        <item >Durgesh Nandan</item>
-        <item >Pramod Joshi</item>
-        <item >Jaiditya Mathur</item>
-        <item >Alok Kumar Singh</item>
-        <item >Yuvish Singh</item>
+        <item >Team Head</item>
+        <item >Mentor</item>
+        <item >Technical Support</item>
+        <item >Marketing Head</item>
     </string-array>
             
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="action_example">Example action</string>
-    <string name="action_settings">Settings</string>
     
-    <string name="loki">Lokesh Mehra</string>
-    <string name="pandey">Vishvajit Pandey</string>
+    <string name="text_about">
+        Inmotion Media is the fastest growing company in transit media space. Company has largest Autorickshaw-Ad network in India, having 20,000+ autos under the umbrella offering in more than 50 tier-ll and lll cities. Started by passionate young entrepreneurs to change the face of auto-rickshaw industry by offering organised advertisement on auto-rickshaws and working for the welfare of the Auto-rickshaw drivers\' community. Won many accolades on national and international level for the unique socio-economic business model.
+    </string>
+    <string name="lkmhr">Lokesh Mehra (@lkmhr)</string>
+    <string name="vjitp">Vishvajit Pandey (@vjitp)</string>
     <string name="business_head_name">Durgesh Nandan</string>
-    <string name="business_head_contact">+91-xxx-xxx-xxxx</string>
+    <string name="business_head_contact">+91–739–875–3559</string>
     <string name="business_head_mail">durgesh@inmotion.in</string>
     <string name="in_motion">InMotion</string>
 
-    <!-- junk  -->
-    <string name="text_home">Home</string>
-    <string name="title_section">Some Section</string>
+    <string name="button_click_image">Click</string>
+    <string name="button_upload_image">Gallery</string>
+    
+    <string name="button_book">Call to Book</string>
 </resources>

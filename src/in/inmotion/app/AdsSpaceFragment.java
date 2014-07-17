@@ -1,249 +1,229 @@
 package in.inmotion.app;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.animation.AnimatorSet;
-import android.animation.ObjectAnimator;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
+
 import android.app.Activity;
 import android.app.Fragment;
-import android.content.Context;
-import android.graphics.Point;
-import android.graphics.Rect;
+import android.content.ActivityNotFoundException;
+import android.content.Intent;
+import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.Bitmap.CompressFormat;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
+import android.provider.MediaStore;
+import android.provider.MediaStore.MediaColumns;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.view.animation.DecelerateInterpolator;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
-import android.widget.BaseAdapter;
-import android.widget.GridView;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 public class AdsSpaceFragment extends Fragment{
+	private View rootView;
 	
-	private GridView gridView;
-	private Animator mCurrentAnimator;
-	private int mShortAnimationDuration;
-	private int thumbs[] = {
-			R.drawable.size01,
-			R.drawable.size02,
-			R.drawable.size03,
-			R.drawable.size04
-//			R.drawable.splash000,
-//			R.drawable.splash001,
-//			R.drawable.splash002,
-//			R.drawable.splash003,
-//			R.drawable.splash004,
-//			R.drawable.splash005
-	};
+	private Button clickButton;
+	private Button uploadButton;
+	private Button saveButton;
+	private ImageView imgView;
+	private ImageView background;
+	
+	private final int CAMERA_REQ = 1;
+	private final int CROP_REQ = 2;
+	private final int GALLERY_REQ = 3;
+	
+	private String imagePath;
+	private File carmeraFile;
+	private Uri imageCarmeraUri;
+	
+	private Uri photoURI;
 	
 	public AdsSpaceFragment() {
-		// TODO Auto-generated constructor stub
-	}
+		// 
+	}	
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		// TODO Auto-generated method stub	
+	
+		rootView = inflater.inflate(R.layout.fragment_ads_space, container, false);
 		
-		final View rootView = inflater.inflate(R.layout.fragment_ads_space, container, false);
+		clickButton = (Button) rootView.findViewById(R.id.click_button);
+		uploadButton = (Button) rootView.findViewById(R.id.upload_button);
+		saveButton =  (Button) rootView.findViewById(R.id.save_button);		
+		imgView = (ImageView) rootView.findViewById(R.id.clicked);
+		background = (ImageView) rootView.findViewById(R.id.bg_auto_1);
 		
-		gridView = (GridView) rootView.findViewById(R.id.gridView);		
-		gridView.setAdapter(new ImageAdapter(getActivity()));
-		gridView.setOnItemClickListener(new OnItemClickListener() {
+		clickButton.setOnClickListener(new View.OnClickListener() {
 
-			@Override
-			public void onItemClick(AdapterView<?> parent, View v, int pos,
-					long id) {
-				zoomImageFromThumb(rootView, v, thumbs[pos]);
+
+			public void onClick(View v) {
+				Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+
+				File fileDir = new File(Environment.getExternalStorageDirectory()
+			            + "/InMotion");
+			    if (!fileDir.exists()) {
+			        fileDir.mkdirs();
+			    }
+			    
+			    imagePath = Environment.getExternalStorageDirectory() + "/InMotion/"
+			            + System.currentTimeMillis() + ".jpg";
+			    carmeraFile = new File(imagePath);
+			    imageCarmeraUri = Uri.fromFile(carmeraFile);
+			    
+			    intent.putExtra(android.provider.MediaStore.EXTRA_OUTPUT,
+			            imageCarmeraUri);
+				
+				intent.putExtra("crop", "true");
+				intent.putExtra("outputX", 200); 
+				intent.putExtra("outputY", 200); 
+				intent.putExtra("aspectX", 1.5); 
+				intent.putExtra("aspectY", 1); 
+
+				try {
+					intent.putExtra("return-data", true);
+					startActivityForResult(intent, CAMERA_REQ);
+				} catch (ActivityNotFoundException e) {
+					// Do nothing
+				}
 			}
-			
 		});
-		
-		mShortAnimationDuration = getResources().getInteger(android.R.integer.config_shortAnimTime);
-		
+		uploadButton.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Intent i = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+				startActivityForResult(i, GALLERY_REQ);
+			}
+		});
+		saveButton.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				saveImage();
+			}
+		});		
 		return rootView;
 	}
+	@Override
+	public void onActivityResult(int requestCode, int resultCode, Intent data){
+		Log.v("CODES :: ", resultCode+","+requestCode);
+		
+		if (resultCode != Activity.RESULT_OK)
+			return;
+
+		switch (requestCode) {
+			case CAMERA_REQ:
+				if(data!=null){
+					photoURI = data.getData();
+				} else {
+					photoURI = imageCarmeraUri;
+					Toast.makeText(getActivity(), "", Toast.LENGTH_LONG).show();
+				}
+				
+				doCrop();
+				break;
+			case CROP_REQ:
+				Bitmap bmp = (Bitmap) data.getExtras().get("data");
+				ByteArrayOutputStream stream = new ByteArrayOutputStream();
 	
-	class ImageAdapter extends BaseAdapter {
-		
-		LayoutInflater layoutInflater;
-		
-		public ImageAdapter(Activity activity) {
-			layoutInflater = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-		}
-		
-		@Override
-		public int getCount() {
-			// TODO Auto-generated method stub
-			return thumbs.length;
-		}
-
-		@Override
-		public Object getItem(int position) {
-			// TODO Auto-generated method stub
-			return position;
-		}
-
-		@Override
-		public long getItemId(int position) {
-			// TODO Auto-generated method stub
-			return position;
-		}
-
-		@Override
-		public View getView(int position, View convertView, ViewGroup parent) {
-			View listItem = convertView;
-			int pos = position;
-			if(listItem == null){
-				listItem = layoutInflater.inflate(R.layout.grid_item, null);
-			}
-			ImageView imageView = (ImageView) listItem.findViewById(R.id.thumb);
-			imageView.setBackgroundResource(thumbs[pos]);
-			return listItem;
-		}		
+				bmp.compress(Bitmap.CompressFormat.PNG, 100, stream);
+				byte[] byteArray = stream.toByteArray();
+	
+				Bitmap bitmap = BitmapFactory.decodeByteArray(byteArray, 0,
+						byteArray.length);
+	
+				imgView.setImageBitmap(bitmap);
+				break;
+			case GALLERY_REQ:
+	
+				photoURI = data.getData();
+				doCrop();
+				break;
+			default:
+				break;
+		}			
 	}
 	
-	private void zoomImageFromThumb(View rootView, final View thumbView, int imgResId){
-
-		// If there's an animation in progress, cancel it
-	    // immediately and proceed with this one.
-	    if (mCurrentAnimator != null) {
-	        mCurrentAnimator.cancel();
-	    }
-
-	    // Load the high-resolution "zoomed-in" image.
-	    final ImageView expandedImageView = (ImageView) rootView.findViewById(
-	            R.id.expanded_image);
-	    expandedImageView.setImageResource(imgResId);
-
-	    // Calculate the starting and ending bounds for the zoomed-in image.
-	    // This step involves lots of math. Yay, math.
-	    final Rect startBounds = new Rect();
-	    final Rect finalBounds = new Rect();
-	    final Point globalOffset = new Point();
-
-	    // The start bounds are the global visible rectangle of the thumbnail,
-	    // and the final bounds are the global visible rectangle of the container
-	    // view. Also set the container view's offset as the origin for the
-	    // bounds, since that's the origin for the positioning animation
-	    // properties (X, Y).
-	    thumbView.getGlobalVisibleRect(startBounds);
-	    rootView.findViewById(R.id.container)
-	            .getGlobalVisibleRect(finalBounds, globalOffset);
-	    startBounds.offset(-globalOffset.x, -globalOffset.y);
-	    finalBounds.offset(-globalOffset.x, -globalOffset.y);
-
-	    // Adjust the start bounds to be the same aspect ratio as the final
-	    // bounds using the "center crop" technique. This prevents undesirable
-	    // stretching during the animation. Also calculate the start scaling
-	    // factor (the end scaling factor is always 1.0).
-	    float startScale;
-	    if ((float) finalBounds.width() / finalBounds.height()
-	            > (float) startBounds.width() / startBounds.height()) {
-	        // Extend start bounds horizontally
-	        startScale = (float) startBounds.height() / finalBounds.height();
-	        float startWidth = startScale * finalBounds.width();
-	        float deltaWidth = (startWidth - startBounds.width()) / 2;
-	        startBounds.left -= deltaWidth;
-	        startBounds.right += deltaWidth;
-	    } else {
-	        // Extend start bounds vertically
-	        startScale = (float) startBounds.width() / finalBounds.width();
-	        float startHeight = startScale * finalBounds.height();
-	        float deltaHeight = (startHeight - startBounds.height()) / 2;
-	        startBounds.top -= deltaHeight;
-	        startBounds.bottom += deltaHeight;
-	    }
-
-	    // Hide the thumbnail and show the zoomed-in view. When the animation
-	    // begins, it will position the zoomed-in view in the place of the
-	    // thumbnail.
-	    thumbView.setAlpha(0f);
-	    expandedImageView.setVisibility(View.VISIBLE);
-
-	    // Set the pivot point for SCALE_X and SCALE_Y transformations
-	    // to the top-left corner of the zoomed-in view (the default
-	    // is the center of the view).
-	    expandedImageView.setPivotX(0f);
-	    expandedImageView.setPivotY(0f);
-
-	    // Construct and run the parallel animation of the four translation and
-	    // scale properties (X, Y, SCALE_X, and SCALE_Y).
-	    AnimatorSet set = new AnimatorSet();
-	    set
-	            .play(ObjectAnimator.ofFloat(expandedImageView, View.X,
-	                    startBounds.left, finalBounds.left))
-	            .with(ObjectAnimator.ofFloat(expandedImageView, View.Y,
-	                    startBounds.top, finalBounds.top))
-	            .with(ObjectAnimator.ofFloat(expandedImageView, View.SCALE_X,
-	            startScale, 1f)).with(ObjectAnimator.ofFloat(expandedImageView,
-	                    View.SCALE_Y, startScale, 1f));
-	    set.setDuration(mShortAnimationDuration);
-	    set.setInterpolator(new DecelerateInterpolator());
-	    set.addListener(new AnimatorListenerAdapter() {
-	        @Override
-	        public void onAnimationEnd(Animator animation) {
-	            mCurrentAnimator = null;
-	        }
-
-	        @Override
-	        public void onAnimationCancel(Animator animation) {
-	            mCurrentAnimator = null;
-	        }
-	    });
-	    set.start();
-	    mCurrentAnimator = set;
-
-	    // Upon clicking the zoomed-in image, it should zoom back down
-	    // to the original bounds and show the thumbnail instead of
-	    // the expanded image.
-	    final float startScaleFinal = startScale;
-	    expandedImageView.setOnClickListener(new View.OnClickListener() {
-	        @Override
-	        public void onClick(View view) {
-	            if (mCurrentAnimator != null) {
-	                mCurrentAnimator.cancel();
-	            }
-
-	            // Animate the four positioning/sizing properties in parallel,
-	            // back to their original values.
-	            AnimatorSet set = new AnimatorSet();
-	            set.play(ObjectAnimator
-	                        .ofFloat(expandedImageView, View.X, startBounds.left))
-	                        .with(ObjectAnimator
-	                                .ofFloat(expandedImageView, 
-	                                        View.Y,startBounds.top))
-	                        .with(ObjectAnimator
-	                                .ofFloat(expandedImageView, 
-	                                        View.SCALE_X, startScaleFinal))
-	                        .with(ObjectAnimator
-	                                .ofFloat(expandedImageView, 
-	                                        View.SCALE_Y, startScaleFinal));
-	            set.setDuration(mShortAnimationDuration);
-	            set.setInterpolator(new DecelerateInterpolator());
-	            set.addListener(new AnimatorListenerAdapter() {
-	                @Override
-	                public void onAnimationEnd(Animator animation) {
-	                    thumbView.setAlpha(1f);
-	                    expandedImageView.setVisibility(View.GONE);
-	                    mCurrentAnimator = null;
-	                }
-
-	                @Override
-	                public void onAnimationCancel(Animator animation) {
-	                    thumbView.setAlpha(1f);
-	                    expandedImageView.setVisibility(View.GONE);
-	                    mCurrentAnimator = null;
-	                }
-	            });
-	            set.start();
-	            mCurrentAnimator = set;
-	        }
-	    });
+	public void doCrop(){
+		
+		try {			
+			final int h = imgView.getMeasuredHeight();
+			final int w = imgView.getMeasuredWidth();
+			  //call the standard crop action intent (the user device may not support it)
+			Intent cropIntent = new Intent("com.android.camera.action.CROP"); 
+			    //indicate image type and Uri
+			cropIntent.setDataAndType(photoURI, "image/*");
+			    //set crop properties
+			cropIntent.putExtra("crop", "true");
+			    //indicate aspect of desired crop
+			cropIntent.putExtra("aspectX", 1.5);
+			cropIntent.putExtra("aspectY", 1);
+			    //indicate output X and Y
+			cropIntent.putExtra("outputX", w);
+			cropIntent.putExtra("outputY", h);
+			    //retrieve data on return
+			cropIntent.putExtra("return-data", true);
+			    //start the activity - we handle returning in onActivityResult
+			startActivityForResult(cropIntent, CROP_REQ);
+		}
+		catch(ActivityNotFoundException anfe){
+		    String errorMessage = "Whoops - your device doesn't support the crop action!";
+		    Toast toast = Toast.makeText(getActivity(), errorMessage, Toast.LENGTH_SHORT);
+		    toast.show();
+		}
+	}
+	
+	private boolean saveImage(){
+			
+		background.buildDrawingCache();
+		Bitmap bottomLayer = background.getDrawingCache(); //BitmapFactory.decodeResource(getResources(), R.drawable.size01);
+		imgView.buildDrawingCache();	
+		Bitmap topLayer =  imgView.getDrawingCache(); //BitmapFactory.decodeResource(getResources(), R.drawable.plus_icon);
+		
+		final int h = background.getMeasuredHeight();
+		final int w = background.getMeasuredWidth();
+		final int h1 = imgView.getMeasuredHeight();
+		final int w1 = imgView.getMeasuredWidth();
+		int left = (h-h1)/2;
+		int top = (w-w1)/2;
+		Canvas comboImage = new Canvas(bottomLayer);
+		comboImage.drawBitmap(topLayer, left, top, null);
+		
+		OutputStream outputStream = null;
+		
+		try {
+			outputStream = new FileOutputStream(imagePath.substring(0,imagePath.length()-4)+"_IM"+imagePath.substring(imagePath.length()-4, imagePath.length()));
+			bottomLayer.compress(CompressFormat.PNG, 100, outputStream);
+			Log.i("TAG", "Saving");
+			galleryAddPic();
+			outputStream.flush();
+			outputStream.close();
+		} catch(Exception e){
+			e.printStackTrace();
+			Log.i("TAG", "not saved");
+			return false;
+		}
+		Toast.makeText(getActivity(), "The Ad has been saved.", Toast.LENGTH_LONG).show();
+		Log.i("TAG", "Saved");
+		return true;
+	}
+	private void galleryAddPic() {
+//	    Intent mediaScanIntent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
+//	    File f = new File(mCurrentPhotoPath);
+//	    Uri contentUri = Uri.fromFile(f);
+//	    mediaScanIntent.setData(contentUri);
+//	    getActivity().sendBroadcast(mediaScanIntent);
+		Log.i("TAG", "send broadcast");
+		getActivity().sendBroadcast(new Intent(Intent.ACTION_MEDIA_MOUNTED, imageCarmeraUri));
 	}
 }

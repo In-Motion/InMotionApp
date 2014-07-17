@@ -21,14 +21,14 @@ public class AwardsFragment extends ListFragment {
 		String[] names = getResources().getStringArray(R.array.awards_name);
 		String[] desc = getResources().getStringArray(R.array.awards_desc);
 		int[] id_sets = {
-							R.drawable.client_001,
-							R.drawable.client_002,
-							R.drawable.client_003,
-							R.drawable.client_004,
-							R.drawable.client_005
+							R.drawable.nen,
+							R.drawable.gsea,
+							R.drawable.dare,
+							R.drawable.your_story,
+							R.drawable.wadhwani
 						};
 		
-		ListArrayAdapter mAdapter = new ListArrayAdapter(getActivity(), names, desc, id_sets);
+		ListArrayAdapter mAdapter = new ListArrayAdapter(getActivity(), names, desc, id_sets, ListArrayAdapter.MODE_SINGLE_LEFT);
 		setListAdapter(mAdapter);
 		
 		return rootView;

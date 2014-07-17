@@ -24,11 +24,10 @@ public class TeamFragment extends ListFragment {
 				R.drawable.team_001,
 				R.drawable.team_004,
 				R.drawable.team_005,
-				R.drawable.team_006,
 				R.drawable.team_002
 			};
 		
-		ListArrayAdapter mAdapter = new ListArrayAdapter(getActivity(), names, desc, id_sets);
+		ListArrayAdapter mAdapter = new ListArrayAdapter(getActivity(), names, desc, id_sets, ListArrayAdapter.MODE_DUAL);
 		setListAdapter(mAdapter);
 		
 		return rootView;
